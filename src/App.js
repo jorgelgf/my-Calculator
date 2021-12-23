@@ -6,14 +6,12 @@ export default function App() {
   const [result, setResult] = useState(null);
   const [inputValue, setInputValue] = useState(0);
 
-  const numbers = {
-    numb: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  };
-  const btnTop = {
+  const ArrayItems = {
+    numb: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
     btn: ["AC", "/", "*", "-", "+"],
   };
-  const { numb } = numbers;
-  const { btn } = btnTop;
+
+  const { numb, btn } = ArrayItems;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,6 +20,7 @@ export default function App() {
 
   return (
     <DivFull>
+      <DivTitle>Calculator</DivTitle>
       <DivCalcTop>
         <DivTopElement>
           <div>...</div>
@@ -60,6 +59,16 @@ const DivFull = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #83dcf9;
+`;
+const DivTitle = styled.div`
+  font-family: "Pushster", cursive;
+  margin-top: 0;
+  font-size: 80px;
+  //  border: 1px solid black;
+  margin-bottom: 50px;
+  color: #5a5a5a;
+  text-shadow: 0px 0px 5px #cecbcb;
+  color: ##403e48;
 `;
 
 const DivCalcTop = styled.div`
