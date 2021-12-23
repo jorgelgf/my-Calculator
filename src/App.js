@@ -24,8 +24,8 @@ export default function App() {
     <DivFull>
       <DivCalcTop>
         <DivTopElement>
-          <div>A</div>
-          <div>X</div>
+          <div>...</div>
+          <div style={{ color: "#C96D91" }}>X</div>
         </DivTopElement>
         <form onSubmit={handleSubmit}>
           <DivResult>{result && result}</DivResult>
