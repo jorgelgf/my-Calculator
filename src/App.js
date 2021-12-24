@@ -7,7 +7,7 @@ export default function App() {
   const [inputValue, setInputValue] = useState([null]);
 
   const ArrayItems = {
-    numb: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, ","],
+    numb: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "."],
     btn: ["AC", "*", "/", "+", "-"],
   };
 
