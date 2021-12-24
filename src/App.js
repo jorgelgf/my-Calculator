@@ -1,51 +1,96 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "@fontsource/roboto/400.css";
-
+import MenuBar from "./Components/MenuBar";
 export default function App() {
-  const [result, setResult] = useState(null);
-  const [inputValue, setInputValue] = useState(0);
+  const [result, setResult] = useState([]);
+  const [inputValue, setInputValue] = useState([null]);
 
   const ArrayItems = {
-    numb: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-    btn: ["AC", "/", "*", "-", "+"],
+    numb: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, ","],
+    btn: ["AC", "*", "/", "+", "-"],
   };
 
   const { numb, btn } = ArrayItems;
 
-  const handleSubmit = (event) => {
+  const funcResult = (event) => {
     event.preventDefault();
-    setResult(inputValue);
+
+    if (typeof inputValue === String) setResult(eval(inputValue));
+    else setResult(eval(inputValue.toString()));
+    setInputValue("");
+  };
+
+  const handleClickButtonBottom = (event) => {
+    event.preventDefault();
+    setInputValue((prevState) =>
+      (prevState + event.target.innerText).toString()
+    );
+  };
+
+  const handleClickButtonTop = (event) => {
+    event.preventDefault();
+    if (event.target.innerText === "AC") {
+      setInputValue("");
+      setResult("");
+    } else
+      setInputValue((prevState) => [
+        prevState + event.target.innerText.toString(),
+      ]);
   };
 
   return (
     <DivFull>
-      <DivTitle>Calculator</DivTitle>
+      <DivTitle>
+        <label htmlFor="inputValue">Calculator</label>
+      </DivTitle>
       <DivCalcTop>
         <DivTopElement>
-          <div>...</div>
-          <div style={{ color: "#C96D91" }}>X</div>
+          <div>
+            <MenuBar />
+          </div>
+          <div
+            style={{ color: "#C96D91", marginRight: "10px" }}
+            onClick={() =>
+              inputValue ? setInputValue(inputValue.slice(0, -1)) : null
+            }
+          >
+            X
+          </div>
         </DivTopElement>
-        <form onSubmit={handleSubmit}>
-          <DivResult>{result && result}</DivResult>
+        <form onSubmit={(event) => funcResult(event)}>
+          <DivResult style={{ color: "#5a5a5a" }}>{result && result}</DivResult>
           <InputNumb
-            type="number"
+            id="inputValue"
+            type="text"
             placeholder="0"
+            autoComplete="off"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
           />
         </form>
         <DivBtnElementTop>
           {btn.map((b) => (
-            <BtnElementTop key={b}>{b}</BtnElementTop>
+            <BtnElementTop
+              onClick={(event) => handleClickButtonTop(event)}
+              key={b}
+            >
+              <label htmlFor="inputValue"> {b}</label>
+            </BtnElementTop>
           ))}
         </DivBtnElementTop>
       </DivCalcTop>
       <DivCalcBottom>
         {numb.map((n) => (
-          <BtnBottom key={n}>{n}</BtnBottom>
+          <BtnBottom
+            htmlFor="inputValue"
+            key={n}
+            onClick={(event) => handleClickButtonBottom(event)}
+          >
+            {n}
+          </BtnBottom>
         ))}
-        <BtnEqual>=</BtnEqual>
+        <BtnEqual onClick={(event) => funcResult(event)}>=</BtnEqual>
       </DivCalcBottom>
     </DivFull>
   );
@@ -82,6 +127,7 @@ const DivTopElement = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  align-items: center;
 `;
 const DivResult = styled.div`
   width: 95%;
@@ -154,7 +200,7 @@ const BtnBottom = styled.button`
 const BtnEqual = styled.button`
   //border: 1px solid black;
   height: 43px;
-  width: 130px;
+  width: 60px;
   margin: 10px;
   background-color: #5bc6f0;
   color: #c5f5f8;
