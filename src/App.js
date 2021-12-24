@@ -116,7 +116,6 @@ const DivTitle = styled.div`
   text-shadow: 0px 0px 5px #cecbcb;
   color: ##403e48;
 `;
-
 const DivCalcTop = styled.div`
   width: 320px;
   height: 220px;
