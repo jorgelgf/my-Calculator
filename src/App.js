@@ -15,8 +15,9 @@ export default function App() {
 
   const funcResult = (event) => {
     event.preventDefault();
-
+    // eslint-disable-next-line no-eval
     if (typeof inputValue === String) setResult(eval(inputValue));
+    // eslint-disable-next-line no-eval
     else setResult(eval(inputValue.toString()));
     setInputValue("");
   };
