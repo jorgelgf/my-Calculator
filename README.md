@@ -9,6 +9,3 @@
 ## Mobile
 
 <img src='https://i.ibb.co/zS2P9P0/mobile.png' alt ='imagem do App calculadora em um smartphone'>
-
-
-Jorge Luís
