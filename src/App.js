@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "@fontsource/roboto/400.css";
-import MenuBar from "./Components/MenuBar";
+import MenuBar from "./components/menu/MenuBar";
+
 export default function App() {
   const [result, setResult] = useState([]);
   const [inputValue, setInputValue] = useState([null]);
 
   const ArrayItems = {
     numb: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "."],
-    btn: ["AC", "*", "/", "+", "-"],
+    btn: ["AC", "*", "/", "+", "-", "DEL"],
   };
 
   const { numb, btn } = ArrayItems;
@@ -34,6 +35,8 @@ export default function App() {
     if (event.target.innerText === "AC") {
       setInputValue("");
       setResult("");
+    } else if (event.target.innerText === "DEL") {
+      setInputValue(inputValue.slice(0, -1));
     } else
       setInputValue((prevState) => [
         prevState + event.target.innerText.toString(),
@@ -49,14 +52,6 @@ export default function App() {
         <DivTopElement>
           <div>
             <MenuBar />
-          </div>
-          <div
-            style={{ color: "#C96D91", marginRight: "10px" }}
-            onClick={() =>
-              inputValue ? setInputValue(inputValue.slice(0, -1)) : null
-            }
-          >
-            X
           </div>
         </DivTopElement>
         <form onSubmit={(event) => funcResult(event)}>
@@ -168,7 +163,7 @@ const DivBtnElementTop = styled.div`
 const BtnElementTop = styled.button`
   width: 45px;
   height: 45px;
-  margin: 10px;
+  margin: 6px;
   border-radius: 5px;
   background-color: #5bc6f0;
   color: #c5f5f8;
@@ -201,7 +196,7 @@ const BtnEqual = styled.button`
   //border: 1px solid black;
   height: 43px;
   width: 60px;
-  margin: 10px;
+  margin: 6px;
   background-color: #5bc6f0;
   color: #c5f5f8;
   border-radius: 5px;
