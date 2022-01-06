@@ -9,3 +9,5 @@
 ## Mobile
 
 <img src='https://i.ibb.co/kXQjtn2/mobile.png' alt ='imagem do App calculadora em um smartphone'>
+
+<a href='https://jl-calculator.netlify.app/' target='_blank'>Veja aqui</a>
