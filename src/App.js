@@ -191,6 +191,7 @@ const BtnBottom = styled.button`
   width: 80px;
   border: none;
   border-radius: 5px;
+  background-color: #f2f2f2;
 `;
 const BtnEqual = styled.button`
   height: 43px;
