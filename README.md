@@ -4,7 +4,7 @@
 
 ## Desktop
 
-<img src='https://i.ibb.co/4p5p1tR/desktop.png' alt ='imagem do App calculadora em um desktop'>
+<img style src='https://i.ibb.co/rFFZZxt/desktop-min.png' alt ='imagem do App calculadora em um desktop'>
 
 ## Mobile
 
