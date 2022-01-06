@@ -92,6 +92,8 @@ export default function App() {
   );
 }
 
+//styles
+
 const DivFull = styled.div`
   display: flex;
   justify-content: center;
@@ -105,11 +107,13 @@ const DivTitle = styled.div`
   font-family: "Pushster", cursive;
   margin-top: 0;
   font-size: 80px;
-  //  border: 1px solid black;
   margin-bottom: 50px;
   color: #5a5a5a;
   text-shadow: 0px 0px 5px #cecbcb;
   color: ##403e48;
+  @media (max-width: 343px) {
+    font-size: 60px;
+  }
 `;
 const DivCalcTop = styled.div`
   width: 320px;
@@ -131,7 +135,6 @@ const DivResult = styled.div`
   text-align: right;
   padding: 0;
   height: 25px;
-  //border: 1px solid black;
 `;
 const InputNumb = styled.input`
   width: 95%;
@@ -158,7 +161,6 @@ const DivBtnElementTop = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  //border: solid black 1px;
 `;
 const BtnElementTop = styled.button`
   width: 45px;
@@ -189,11 +191,8 @@ const BtnBottom = styled.button`
   width: 80px;
   border: none;
   border-radius: 5px;
-
-  // border: 1px solid black;
 `;
 const BtnEqual = styled.button`
-  //border: 1px solid black;
   height: 43px;
   width: 60px;
   margin: 6px;
