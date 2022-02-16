@@ -48,46 +48,65 @@ export default function Home() {
       ]);
   };
 
+  //div with elements of top
+  const topElements = () => {
+    return (
+      <>
+        <DivCalcTop>
+          <ContainerTop>
+            <div>
+              <MenuBar />
+            </div>
+          </ContainerTop>
+          <form onSubmit={(event) => funcResult(event)}>
+            <Result style={{ color: "#5a5a5a" }}>{result && result}</Result>
+            <Input
+              id="inputValue"
+              type="text"
+              placeholder="0"
+              autoComplete="off"
+              value={inputValue}
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+          </form>
+          <DivBtnElement>
+            {btn.map((b) => (
+              <BtnT onClick={(event) => handleClickButtonTop(event)} key={b}>
+                <label htmlFor="inputValue"> {b}</label>
+              </BtnT>
+            ))}
+          </DivBtnElement>
+        </DivCalcTop>
+      </>
+    );
+  };
+
+  //div with elements of bottom
+  const botElements = () => {
+    return (
+      <>
+        <DivBottom>
+          {numb.map((n) => (
+            <BtnB
+              htmlFor="inputValue"
+              key={n}
+              onClick={(event) => handleClickButtonBottom(event)}
+            >
+              {n}
+            </BtnB>
+          ))}
+          <BtnEqual onClick={(event) => funcResult(event)}>=</BtnEqual>
+        </DivBottom>
+      </>
+    );
+  };
+
+  //return general
   return (
     <Layout>
       <Title htmlFor="inputValue">Calculator</Title>
-      <DivCalcTop>
-        <ContainerTop>
-          <div>
-            <MenuBar />
-          </div>
-        </ContainerTop>
-        <form onSubmit={(event) => funcResult(event)}>
-          <Result style={{ color: "#5a5a5a" }}>{result && result}</Result>
-          <Input
-            id="inputValue"
-            type="text"
-            placeholder="0"
-            autoComplete="off"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
-          />
-        </form>
-        <DivBtnElement>
-          {btn.map((b) => (
-            <BtnT onClick={(event) => handleClickButtonTop(event)} key={b}>
-              <label htmlFor="inputValue"> {b}</label>
-            </BtnT>
-          ))}
-        </DivBtnElement>
-      </DivCalcTop>
-      <DivBottom>
-        {numb.map((n) => (
-          <BtnB
-            htmlFor="inputValue"
-            key={n}
-            onClick={(event) => handleClickButtonBottom(event)}
-          >
-            {n}
-          </BtnB>
-        ))}
-        <BtnEqual onClick={(event) => funcResult(event)}>=</BtnEqual>
-      </DivBottom>
+      {topElements()}
+      {botElements()}
     </Layout>
   );
 }

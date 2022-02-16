@@ -41,7 +41,7 @@ export const BtnEqual = styled.button`
   border: none;
   transition: 0.5s ease;
   :hover {
-    background-color: #c9e7f3;
+    background-color: #91d5f0;
     color: #575a5a;
   }
 `;
