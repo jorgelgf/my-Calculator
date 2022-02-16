@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "@fontsource/roboto/400.css";
 import MenuBar from "../menu/MenuBar";
-import * as S from "./styles";
 import Layout from "../layout/Layout";
 import Title from "../Title/Title";
 import DivCalcTop from "../divTop/fullContainer/DivTop";
@@ -11,7 +10,8 @@ import Input from "../divTop/InputNumb/Input";
 import DivBtnElement from "../divTop/divBtnElemnt/DivBtnElement";
 import BtnT from "../buttons/BtnT";
 import DivBottom from "../divBottom/fullContainer/DivBottom";
-
+import BtnB from "../buttons/BtnB";
+import BtnEqual from "../buttons/BtnEqual";
 export default function Home() {
   const [result, setResult] = useState([]);
   const [inputValue, setInputValue] = useState([null]);
@@ -78,15 +78,15 @@ export default function Home() {
       </DivCalcTop>
       <DivBottom>
         {numb.map((n) => (
-          <S.BtnBottom
+          <BtnB
             htmlFor="inputValue"
             key={n}
             onClick={(event) => handleClickButtonBottom(event)}
           >
             {n}
-          </S.BtnBottom>
+          </BtnB>
         ))}
-        <S.BtnEqual onClick={(event) => funcResult(event)}>=</S.BtnEqual>
+        <BtnEqual onClick={(event) => funcResult(event)}>=</BtnEqual>
       </DivBottom>
     </Layout>
   );

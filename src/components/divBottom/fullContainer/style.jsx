@@ -13,6 +13,7 @@ export const DivCalcBottom = styled.div`
   box-shadow: 0 0 5px 1px #969090;
   flex-wrap: wrap;
   transition: 0.5s ease;
+
   :hover {
     box-shadow: 0 0 25px 1px #969090;
   }
