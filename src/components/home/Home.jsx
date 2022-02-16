@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "@fontsource/roboto/400.css";
 import MenuBar from "../menu/MenuBar";
 import Layout from "../layout/Layout";
-import Title from "../Title/Title";
+import Title from "../title/Title";
 import DivCalcTop from "../divTop/fullContainer/DivTop";
 import ContainerTop from "../divTop/elementTop/DivTopElement";
 import Result from "../divTop/divResultTop/Result";
