@@ -6,6 +6,6 @@ export const DivFull = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #83dcf9;
 `;

@@ -1,8 +1,8 @@
 import * as S from "./style";
 
-export default function BtnB({ children, htmlFor, key, onClick }) {
+export default function BtnB({ children, htmlFor, onClick }) {
   return (
-    <S.BtnBottom htmlFor={htmlFor} key={key} onClick={onClick}>
+    <S.BtnBottom htmlFor={htmlFor} onClick={onClick}>
       {children}
     </S.BtnBottom>
   );
