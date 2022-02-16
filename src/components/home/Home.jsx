@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import "@fontsource/roboto/400.css";
-import MenuBar from "../../menu/MenuBar";
+import MenuBar from "../menu/MenuBar";
 import * as S from "./styles";
+import Layout from "../layout/Layout";
+import Title from "../Title/Title";
+import DivCalcTop from "../divTop/fullContainer/DivTop";
+import ContainerTop from "../divTop/elementTop/DivTopElement";
+import Result from "../divTop/divResultTop/Result";
+import Input from "../divTop/InputNumb/Input";
+import DivBtnElement from "../divTop/divBtnElemnt/DivBtnElement";
+import BtnT from "../buttons/BtnT";
+import DivBottom from "../divBottom/fullContainer/DivBottom";
 
 export default function Home() {
   const [result, setResult] = useState([]);
@@ -40,21 +49,17 @@ export default function Home() {
   };
 
   return (
-    <S.DivFull>
-      <S.DivTitle>
-        <label htmlFor="inputValue">Calculator</label>
-      </S.DivTitle>
-      <S.DivCalcTop>
-        <S.DivTopElement>
+    <Layout>
+      <Title htmlFor="inputValue">Calculator</Title>
+      <DivCalcTop>
+        <ContainerTop>
           <div>
             <MenuBar />
           </div>
-        </S.DivTopElement>
+        </ContainerTop>
         <form onSubmit={(event) => funcResult(event)}>
-          <S.DivResult style={{ color: "#5a5a5a" }}>
-            {result && result}
-          </S.DivResult>
-          <S.InputNumb
+          <Result style={{ color: "#5a5a5a" }}>{result && result}</Result>
+          <Input
             id="inputValue"
             type="text"
             placeholder="0"
@@ -63,18 +68,15 @@ export default function Home() {
             onChange={(event) => setInputValue(event.target.value)}
           />
         </form>
-        <S.DivBtnElementTop>
+        <DivBtnElement>
           {btn.map((b) => (
-            <S.BtnElementTop
-              onClick={(event) => handleClickButtonTop(event)}
-              key={b}
-            >
+            <BtnT onClick={(event) => handleClickButtonTop(event)} key={b}>
               <label htmlFor="inputValue"> {b}</label>
-            </S.BtnElementTop>
+            </BtnT>
           ))}
-        </S.DivBtnElementTop>
-      </S.DivCalcTop>
-      <S.DivCalcBottom>
+        </DivBtnElement>
+      </DivCalcTop>
+      <DivBottom>
         {numb.map((n) => (
           <S.BtnBottom
             htmlFor="inputValue"
@@ -85,7 +87,7 @@ export default function Home() {
           </S.BtnBottom>
         ))}
         <S.BtnEqual onClick={(event) => funcResult(event)}>=</S.BtnEqual>
-      </S.DivCalcBottom>
-    </S.DivFull>
+      </DivBottom>
+    </Layout>
   );
 }
