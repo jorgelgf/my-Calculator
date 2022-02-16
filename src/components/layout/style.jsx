@@ -5,7 +5,7 @@ export const DivFull = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  min-width: 100%;
   min-height: 100vh;
   background-color: #83dcf9;
 `;
