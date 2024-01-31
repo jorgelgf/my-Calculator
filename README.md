@@ -10,4 +10,4 @@
 
 <img src='https://i.ibb.co/kXQjtn2/mobile.png' alt ='img from mobile'>
 
-<a href='https://jl-calculator.netlify.app/' target='_blank'>Site/a>
+<a href='https://jl-calculator.netlify.app/' target='_blank'>Site</a>
