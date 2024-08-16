@@ -1,6 +1,6 @@
 # Calculadora
 
-<p>A simple calculator made with ReactJS - V 1.2</p>
+<p>Uma simples calculadora desenvolvida com ReactJS - V 1.2</p>
 
 ## Desktop
 
